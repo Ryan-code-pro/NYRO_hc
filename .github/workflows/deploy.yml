@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -12,7 +13,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Allow one concurrent deployment, skip runs queued between the run in-progress and latest queued
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -31,18 +32,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install dependencies with fallback
         run: |
           if [ -f package-lock.json ]; then
-            npm ci
+            echo "package-lock.json found. Attempting npm ci..."
+            npm ci || {
+              echo "npm ci failed or had conflicts. Falling back to npm install..."
+              npm install --legacy-peer-deps || npm install
+            }
           else
-            npm install
+            echo "No package-lock.json found. Running npm install..."
+            npm install --legacy-peer-deps || npm install
           fi
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          # Disable Jekyll processing on GitHub Pages
+          touch dist/.nojekyll
+          # Ensure SPA fallback for direct routing and reloads
+          cp dist/index.html dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -55,3 +65,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
