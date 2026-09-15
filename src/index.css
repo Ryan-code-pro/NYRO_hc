@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes gradient-smooth {
+    0%, 100% {
+      background-size: 240% 240%;
+      background-position: 0% 50%;
+    }
+    50% {
+      background-size: 240% 240%;
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes pulse-calm {
+    0%, 100% {
+      opacity: 0.10;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.16;
+      transform: scale(1.03);
+    }
+  }
+
+  @keyframes float-drift-1 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-16px) translateX(12px);
+    }
+    66% {
+      transform: translateY(10px) translateX(-14px);
+    }
+  }
+
+  @keyframes float-drift-2 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(14px) translateX(-12px);
+    }
+    66% {
+      transform: translateY(-12px) translateX(10px);
+    }
+  }
+
+  @keyframes glow-gentle {
+    0%, 100% {
+      opacity: 0.65;
+      transform: scale(0.96);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes border-rainbow-slow {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  /* Sleek, gradual gradient animations (26-34s duration for a calming, luxurious motion) */
+  .animate-gradient-x,
+  .animate-gradient-smooth {
+    animation: gradient-smooth 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .animate-gradient-fast {
+    animation: gradient-smooth 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-calm 18s ease-in-out infinite;
+  }
+
+  .animate-float-1 {
+    animation: float-drift-1 38s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: float-drift-2 46s ease-in-out infinite;
+  }
+
+  .animate-rainbow {
+    animation: border-rainbow-slow 30s linear infinite;
+  }
+
+  .animate-glow-gentle {
+    animation: glow-gentle 4s ease-in-out infinite;
+  }
+
+  .chroma-border {
+    position: relative;
+    border-radius: 1rem;
+  }
+
+  .chroma-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(90deg, #00f0ff, #10b981, #a855f7, #ec4899, #f59e0b, #00f0ff);
+    background-size: 300% 300%;
+    animation: gradient-smooth 28s ease infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
