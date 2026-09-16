@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LivingPalette } from '../types';
-import { CORE_PILLARS, TECH_TRACKS, CLUB_FAQS, CLUB_STATS } from '../data/clubData';
+import { CORE_PILLARS, TECH_TRACKS, CLUB_FAQS } from '../data/clubData';
 import {
   Code2,
   Terminal,
@@ -58,31 +58,6 @@ export const AboutUs: React.FC<AboutUsProps> = ({
         </p>
       </div>
 
-      {/* Multi-Color Stats Ribbon - Each Box Pops With Its Own Distinct Color */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {CLUB_STATS.map((stat, i) => (
-          <div
-            key={i}
-            className="p-5 rounded-2xl bg-[#151821]/80 border border-neutral-800 hover:border-neutral-700 transition-all text-center group relative overflow-hidden backdrop-blur-sm"
-          >
-            {/* Top ambient color edge */}
-            <div
-              className="absolute top-0 left-0 right-0 h-[2px] opacity-70 group-hover:opacity-100 transition-opacity"
-              style={{ backgroundColor: stat.color }}
-            />
-            <div
-              className="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight transition-transform group-hover:scale-105"
-              style={{ color: stat.color }}
-            >
-              {stat.value}
-            </div>
-            <div className="text-xs sm:text-sm text-neutral-400 font-medium mt-1">
-              {stat.label}
-            </div>
-          </div>
-        ))}
-      </div>
-
       {/* Mission & Culture Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-7 space-y-5">
@@ -97,7 +72,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({
             Computer science classes test algorithms on paper, but real-world engineering requires shipping: wrangling messy API schemas, configuring Docker containers, debugging concurrency locks, and building interfaces people actually love to touch.
           </p>
           <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-            We started with five friends huddled around late-night pizza in a residence hall lounge. Today, NYRO provides compute servers, cloud clusters, hackathon travel grants, and a welcoming hive where no question is ever &ldquo;too beginner.&rdquo;
+            NYRO is dedicated to providing high schoolers and teenagers with hands-on workshops, coding projects, and a welcoming community under Hack Club where no question is ever &ldquo;too beginner.&rdquo;
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -114,7 +89,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({
               onClick={onNavigateContact}
               className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold border border-neutral-700 bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 transition-all"
             >
-              <span>Get In Touch With Leads</span>
+              <span>Contact Organizers</span>
             </button>
           </div>
         </div>
@@ -139,6 +114,11 @@ export const AboutUs: React.FC<AboutUsProps> = ({
                 <span className="text-emerald-300">{`"NYRO"`}</span>
                 <span className="text-neutral-400">{`,\n`}</span>
 
+                <span className="text-cyan-400">{`  "parent_network"`}</span>
+                <span className="text-neutral-400">{`: `}</span>
+                <span className="text-rose-400">{`"Hack Club (501c3)"`}</span>
+                <span className="text-neutral-400">{`,\n`}</span>
+
                 <span className="text-cyan-400">{`  "culture"`}</span>
                 <span className="text-neutral-400">{`: {\n`}</span>
                 <span className="text-pink-400">{`    "gatekeeping"`}</span>
@@ -149,18 +129,16 @@ export const AboutUs: React.FC<AboutUsProps> = ({
                 <span className="text-neutral-400">{`: `}</span>
                 <span className="text-amber-400">{`true`}</span>
                 <span className="text-neutral-400">{`,\n`}</span>
-                <span className="text-pink-400">{`    "open_source"`}</span>
+                <span className="text-pink-400">{`    "open_to_all"`}</span>
                 <span className="text-neutral-400">{`: `}</span>
                 <span className="text-amber-400">{`true`}</span>
                 <span className="text-neutral-400">{`\n  },\n`}</span>
 
-                <span className="text-cyan-400">{`  "tech_tracks"`}</span>
-                <span className="text-neutral-400">{`: [\n`}</span>
-                <span className="text-emerald-300">{`    "AI / Neural Networks",\n`}</span>
-                <span className="text-purple-300">{`    "Rust & Kernel Systems",\n`}</span>
-                <span className="text-amber-300">{`    "Full-Stack Web / Cloud",\n`}</span>
-                <span className="text-rose-300">{`    "Hardware & Robotics"\n`}</span>
-                <span className="text-neutral-400">{`  ],\n`}</span>
+                <span className="text-cyan-400">{`  "flagship_workshop"`}</span>
+                <span className="text-neutral-400">{`: `}</span>
+                <span className="text-amber-300">{`"Boba Drops (3 Oct)"`}</span>
+                <span className="text-neutral-400">{`,\n`}</span>
+
                 <span className="text-cyan-400">{`  "membership_fee"`}</span>
                 <span className="text-neutral-400">{`: `}</span>
                 <span className="text-emerald-400">{`"$0.00 (Free Forever)"\n`}</span>
@@ -281,8 +259,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({
               </div>
 
               <div className="pt-2 border-t border-neutral-800/80 text-[11px] font-mono text-neutral-400 flex items-center justify-between">
-                <span>Lead: {track.lead}</span>
-                <span style={{ color: track.color }}>Active Group →</span>
+                <span>Track: {track.lead}</span>
+                <span style={{ color: track.color }}>Learn &amp; Build →</span>
               </div>
             </div>
           ))}

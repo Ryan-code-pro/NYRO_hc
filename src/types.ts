@@ -1,6 +1,6 @@
 export type LivingPaletteId = 'solar-flare';
 
-export type PageId = 'home' | 'about' | 'events' | 'boba-drops' | 'founders' | 'gallery' | 'contact';
+export type PageId = 'home' | 'about' | 'events' | 'boba-drops' | 'contact';
 
 export interface LivingPalette {
   id: LivingPaletteId;
@@ -29,34 +29,8 @@ export interface ClubEvent {
   description: string;
   instructor?: string;
   level: 'All Levels' | 'Beginner' | 'Intermediate' | 'Advanced';
-  spotsLeft: number;
-  totalSpots: number;
+  spotsLeft?: number;
+  totalSpots?: number;
   isFeatured?: boolean;
   colorAccent: string; // distinct neon color for this category
-}
-
-export interface Founder {
-  id: string;
-  name: string;
-  role: string;
-  handle: string;
-  bio: string;
-  avatar: string;
-  techStack: string[];
-  quote: string;
-  github: string;
-  linkedin: string;
-  status: string;
-  badgeColor: string;
-}
-
-export interface GalleryItem {
-  id: string;
-  title: string;
-  category: 'Hackathons' | 'Workshops' | 'Demos' | 'Socials';
-  imageUrl: string;
-  date: string;
-  caption: string;
-  likes: number;
-  colorAccent: string;
 }

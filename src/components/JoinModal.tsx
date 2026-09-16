@@ -69,7 +69,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, palette }
               Join NYRO
             </h3>
             <p className="text-xs text-neutral-400">
-              Free campus developer community
+              Free student developer community
             </p>
           </div>
         </div>
@@ -78,9 +78,9 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, palette }
           <div className="p-3.5 rounded-2xl bg-[#0e1017] border border-cyan-500/30 flex items-start gap-3">
             <Users className="w-4 h-4 shrink-0 mt-0.5 text-cyan-400" />
             <div>
-              <div className="font-semibold text-white">950+ Discord Members</div>
+              <div className="font-semibold text-white">Official Club Discord</div>
               <div className="text-neutral-400 text-xs">
-                Active channels for AI, Systems, Web, LeetCode, and Hackathon sprint teams.
+                Active community channels for workshops, projects, hackathons, and questions.
               </div>
             </div>
           </div>
@@ -88,9 +88,9 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, palette }
           <div className="p-3.5 rounded-2xl bg-[#0e1017] border border-emerald-500/30 flex items-start gap-3">
             <Sparkles className="w-4 h-4 shrink-0 mt-0.5 text-emerald-400" />
             <div>
-              <div className="font-semibold text-white">Free Event Passes &amp; Food</div>
+              <div className="font-semibold text-white">Free Workshops &amp; Mentorship</div>
               <div className="text-neutral-400 text-xs">
-                Guaranteed access to all workshops, cloud credits, hardware kits, and hackathon pizza.
+                Open access to all hands-on workshops, Boba Drops sessions, peer mentorship, and refreshments.
               </div>
             </div>
           </div>

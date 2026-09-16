@@ -25,11 +25,8 @@ export const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ palette, onNavig
   const [copiedEventId, setCopiedEventId] = useState<string | null>(null);
 
   const categories = [
-    { label: 'All', color: '#00f0ff' },
-    { label: 'Hackathon', color: '#ec4899' },
+    { label: 'All', color: '#f97316' },
     { label: 'Workshop', color: '#a855f7' },
-    { label: 'Tech Talk', color: '#f59e0b' },
-    { label: 'Social & Jam', color: '#10b981' },
   ];
 
   const toggleRsvp = (eventId: string) => {
@@ -65,12 +62,12 @@ export const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ palette, onNavig
             Upcoming Events
           </h1>
           <p className="mt-3 text-sm sm:text-base text-neutral-300 max-w-2xl leading-relaxed">
-            Hands-on workshops, 48-hour hackathons, and collaborative sprint sessions. All sessions are 100% free with compute credits, mentorship, and meals provided.
+            Hands-on coding workshops and collaborative build sessions. Free for high schoolers and teenagers with peer mentorship, stickers, and refreshments.
           </p>
         </div>
 
         <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#161822] border border-neutral-800 text-xs font-mono text-neutral-300">
-          <span>{filteredEvents.length} Events Scheduled</span>
+          <span>{filteredEvents.length === 1 ? '1 Event Scheduled' : `${filteredEvents.length} Events Scheduled`}</span>
         </div>
       </div>
 
@@ -140,10 +137,6 @@ export const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ palette, onNavig
         ) : (
           filteredEvents.map((event) => {
             const isRsvpd = rsvps[event.id];
-            const remainingSpots = isRsvpd ? event.spotsLeft - 1 : event.spotsLeft;
-            const percentFilled = Math.round(
-              ((event.totalSpots - remainingSpots) / event.totalSpots) * 100
-            );
 
             return (
               <div
@@ -222,23 +215,11 @@ export const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ palette, onNavig
 
                 {/* RSVP and Actions Side */}
                 <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-3 min-w-[210px] pt-4 lg:pt-0 border-t lg:border-t-0 border-neutral-800/80 relative z-10">
-                  <div className="text-right">
-                    <div className="text-xs font-mono text-neutral-300">
-                      <span style={{ color: event.colorAccent }} className="font-bold">
-                        {remainingSpots}
-                      </span>{' '}
-                      of {event.totalSpots} spots left
-                    </div>
-                    <div className="w-36 bg-neutral-900 h-2 rounded-full overflow-hidden mt-1.5 border border-neutral-800">
-                      <div
-                        className="h-full transition-all duration-300"
-                        style={{
-                          width: `${percentFilled}%`,
-                          backgroundColor: event.colorAccent,
-                          boxShadow: `0 0 10px ${event.colorAccent}`,
-                        }}
-                      />
-                    </div>
+                  <div className="text-left sm:text-right">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-950/60 border border-emerald-500/40 text-emerald-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Free Registration
+                    </span>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2">

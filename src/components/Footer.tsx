@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand & Mission */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <div
                 className="w-9 h-9 rounded-xl bg-[#161822] border border-neutral-700 flex items-center justify-center font-mono font-bold text-sm shadow-md"
               >
@@ -57,6 +57,21 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="font-mono font-bold text-lg text-white">
                 NYRO
               </span>
+              <span className="text-neutral-600 font-light text-base select-none px-0.5">|</span>
+              <a
+                href="https://hackclub.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Hack Club - Parent Organisation"
+                className="flex items-center hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="https://imgs.search.brave.com/bxZZXuZ5g3SivBORYE0-f-IFZtvpATUndb_zsVvGSP4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYW1v/LmdpdGh1YnVzZXJj/b250ZW50LmNvbS85/NTJlMTljYWJmMDhm/OGI2YjE4MWRlZjNl/OWM3NDc2ZDNiNTBl/ZTY2NjhmMGFmMWU5/MzkzMWQ4ZjQwODJj/ZTBmLzY4NzQ3NDcw/NzMzYTJmMmY2MTcz/NzM2NTc0NzMyZTY4/NjE2MzZiNjM2Yzc1/NjIyZTYzNmY2ZDJm/NjY2YzYxNjcyZDcz/NzQ2MTZlNjQ2MTZj/NmY2ZTY1MmU3Mzc2/Njc"
+                  alt="Hack Club"
+                  className="h-6 sm:h-7 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </a>
             </div>
 
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-sm">
@@ -132,22 +147,6 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('founders')}
-                  className="hover:text-purple-400 transition-colors"
-                >
-                  Founders &amp; Leads
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('gallery')}
-                  className="hover:text-amber-400 transition-colors"
-                >
-                  Photo Gallery
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onNavigate('contact')}
                   className="hover:text-cyan-400 transition-colors"
                 >
@@ -157,22 +156,22 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Schedule */}
+          {/* Workshop & Venue */}
           <div className="space-y-3">
             <div className="text-xs font-mono font-semibold uppercase text-emerald-400">
-              Lab &amp; Schedule
+              Workshop &amp; Venue
             </div>
             <div className="space-y-2 text-xs text-neutral-400">
               <div>
-                <span className="text-neutral-200 font-medium">Tuesdays:</span> Open Code Sprints
-                <div className="text-[11px] text-neutral-500">6:00 PM – 9:00 PM</div>
+                <span className="text-neutral-200 font-medium">Location:</span> Mahagun Club 1
+                <div className="text-[11px] text-neutral-500">In collaboration with Udaan</div>
               </div>
               <div>
-                <span className="text-neutral-200 font-medium">Thursdays:</span> Tech Deep Dives
-                <div className="text-[11px] text-neutral-500">6:30 PM – 8:30 PM</div>
+                <span className="text-neutral-200 font-medium">Next Workshop:</span> Boba Drops
+                <div className="text-[11px] text-neutral-500">3 October • 2:00 PM – 6:00 PM</div>
               </div>
               <div>
-                <span className="text-neutral-200 font-medium">Location:</span> Turing Hall 014
+                <span className="text-neutral-200 font-medium">Community:</span> Active on Discord
               </div>
             </div>
           </div>
@@ -180,10 +179,10 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Hackathon Alerts Newsletter */}
           <div className="space-y-3">
             <div className="text-xs font-mono font-semibold uppercase text-pink-400">
-              Hackathon Alerts
+              Workshop Alerts
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Get notified first when hackathon RSVPs and workshop seats open up.
+              Get notified first when workshop registrations and hack sessions open up.
             </p>
             {subscribed ? (
               <div className="p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 text-xs font-mono flex items-center gap-1.5">
@@ -195,7 +194,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <input
                   type="email"
                   required
-                  placeholder="name@university.edu"
+                  placeholder="your.email@example.com"
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   className="w-full px-3 py-2 rounded-xl bg-[#161822] border border-neutral-800 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-pink-500/80"

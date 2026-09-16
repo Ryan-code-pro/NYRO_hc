@@ -1,6 +1,6 @@
 {
   "name": "NYRO",
-  "description": "Official website for NYRO coding club featuring interactive events, Boba Drops workshop, about us, founders showcase, photo gallery, and contact.",
+  "description": "Official website for NYRO coding club featuring interactive events, Boba Drops workshop, club mission, technical tracks, and contact.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

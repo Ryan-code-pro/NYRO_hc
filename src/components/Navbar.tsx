@@ -3,8 +3,6 @@ import { PageId, LivingPalette } from '../types';
 import {
   Code2,
   Calendar,
-  Users,
-  Image as ImageIcon,
   Mail,
   Menu,
   X,
@@ -26,13 +24,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Functional navigation items: only the core club pages (Overview is accessed via Brand Name)
+  // Functional navigation items: authentic club pages
   const navItems: { id: PageId; label: string; icon: React.ReactNode; color: string }[] = [
     { id: 'about', label: 'About Us', icon: <Code2 className="w-4 h-4" />, color: '#f59e0b' },
     { id: 'events', label: 'Upcoming Events', icon: <Calendar className="w-4 h-4" />, color: '#f97316' },
     { id: 'boba-drops', label: 'Boba Drops Workshop', icon: <Sparkles className="w-4 h-4" />, color: '#f97316' },
-    { id: 'founders', label: 'Founders', icon: <Users className="w-4 h-4" />, color: '#ef4444' },
-    { id: 'gallery', label: 'Photo Gallery', icon: <ImageIcon className="w-4 h-4" />, color: '#a855f7' },
     { id: 'contact', label: 'Contact', icon: <Mail className="w-4 h-4" />, color: '#f59e0b' },
   ];
 
@@ -49,22 +45,42 @@ export const Navbar: React.FC<NavbarProps> = ({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Brand Logo & Name - Clean, strictly the name without indicators */}
-          <button
-            id="brand-logo-btn"
-            onClick={() => handleNavClick('home')}
-            className="group flex items-center gap-3 text-left focus:outline-none rounded-xl p-1.5 transition-transform active:scale-95"
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#161922] border border-amber-500/40 flex items-center justify-center font-mono font-bold text-sm shadow-[0_0_15px_rgba(249,115,22,0.2)]">
-              <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 bg-clip-text text-transparent font-extrabold">
-                &lt;/&gt;
-              </span>
-            </div>
+          {/* Brand Logo & Name with Hack Club Parent Org */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <button
+              id="brand-logo-btn"
+              onClick={() => handleNavClick('home')}
+              className="group flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none rounded-xl p-1 transition-transform active:scale-95"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#161922] border border-amber-500/40 flex items-center justify-center font-mono font-bold text-sm shadow-[0_0_15px_rgba(249,115,22,0.2)]">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 bg-clip-text text-transparent font-extrabold">
+                  &lt;/&gt;
+                </span>
+              </div>
 
-            <span className="font-mono font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-amber-300 transition-colors">
-              NYRO
-            </span>
-          </button>
+              <span className="font-mono font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-amber-300 transition-colors">
+                NYRO
+              </span>
+            </button>
+
+            <span className="text-neutral-600 font-light text-base sm:text-lg select-none px-0.5">|</span>
+
+            <a
+              href="https://hackclub.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="navbar-hack-club-link"
+              title="Hack Club - Parent Organisation"
+              className="flex items-center hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="https://imgs.search.brave.com/bxZZXuZ5g3SivBORYE0-f-IFZtvpATUndb_zsVvGSP4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYW1v/LmdpdGh1YnVzZXJj/b250ZW50LmNvbS85/NTJlMTljYWJmMDhm/OGI2YjE4MWRlZjNl/OWM3NDc2ZDNiNTBl/ZTY2NjhmMGFmMWU5/MzkzMWQ4ZjQwODJj/ZTBmLzY4NzQ3NDcw/NzMzYTJmMmY2MTcz/NzM2NTc0NzMyZTY4/NjE2MzZiNjM2Yzc1/NjIyZTYzNmY2ZDJm/NjY2YzYxNjcyZDcz/NzQ2MTZlNjQ2MTZj/NmY2ZTY1MmU3Mzc2/Njc"
+                alt="Hack Club"
+                className="h-7 sm:h-8 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
+            </a>
+          </div>
 
           {/* Desktop Navigation Links - Single line, functional */}
           <nav aria-label="Desktop navigation" className="hidden lg:flex items-center gap-1">

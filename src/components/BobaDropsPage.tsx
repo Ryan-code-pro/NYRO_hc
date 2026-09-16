@@ -16,7 +16,6 @@ import {
   ArrowLeft,
   Building,
   HeartHandshake,
-  Megaphone,
   Armchair,
 } from 'lucide-react';
 
@@ -37,13 +36,11 @@ export const BobaDropsPage: React.FC<BobaDropsPageProps> = ({
   const [rsvpLaptop, setRsvpLaptop] = useState('yes');
   const [rsvpSeatingNote, setRsvpSeatingNote] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [rsvpCount, setRsvpCount] = useState(19);
 
   const handleSubmitRSVP = (e: React.FormEvent) => {
     e.preventDefault();
     if (!rsvpName.trim() || !rsvpContact.trim()) return;
     setIsSubmitted(true);
-    setRsvpCount((prev) => prev + 1);
   };
 
   const handleDownloadCalendar = () => {
@@ -250,36 +247,19 @@ export const BobaDropsPage: React.FC<BobaDropsPageProps> = ({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-[#181b26] border border-neutral-800 space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-300">
-                  <Building className="w-4 h-4 text-amber-400" />
-                  <span>How Udaan Supports:</span>
-                </div>
-                <ul className="space-y-2 text-xs text-neutral-300">
-                  {BOBA_DROPS_DETAILS.udaanCollaboration.items.map((it, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-amber-400 mt-0.5 font-bold">•</span>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="p-5 rounded-2xl bg-[#181b26] border border-neutral-800 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-300">
+                <Building className="w-4 h-4 text-amber-400" />
+                <span>How Udaan Supports:</span>
               </div>
-
-              <div className="p-4 rounded-xl bg-[#181b26] border border-neutral-800 space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-orange-300">
-                  <Megaphone className="w-4 h-4 text-orange-400" />
-                  <span>What Udaan Gets in Return:</span>
-                </div>
-                <ul className="space-y-2 text-xs text-neutral-300">
-                  {BOBA_DROPS_DETAILS.udaanCollaboration.returnBenefits.map((it, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-orange-400 mt-0.5 font-bold">•</span>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-neutral-300 pt-1">
+                {BOBA_DROPS_DETAILS.udaanCollaboration.items.map((it, i) => (
+                  <li key={i} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#131620] border border-neutral-800/80">
+                    <span className="text-amber-400 font-bold">•</span>
+                    <span className="leading-relaxed">{it}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -322,8 +302,9 @@ export const BobaDropsPage: React.FC<BobaDropsPageProps> = ({
                   Reserve Workshop Seat
                 </h3>
               </div>
-              <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-orange-950/80 border border-orange-500/40 text-orange-300 font-bold">
-                {rsvpCount} / 35 Reserved
+              <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-semibold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Free RSVP
               </span>
             </div>
 

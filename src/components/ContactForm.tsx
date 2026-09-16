@@ -19,7 +19,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    year: 'Sophomore (2nd Year)',
+    year: 'Teenager (13–15 years)',
     interest: 'General Coding & Side Projects',
     subject: 'Club Membership & Getting Started',
     message: '',
@@ -42,7 +42,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
     setFormData({
       name: '',
       email: '',
-      year: 'Sophomore (2nd Year)',
+      year: 'Teenager (13–15 years)',
       interest: 'General Coding & Side Projects',
       subject: 'Club Membership & Getting Started',
       message: '',
@@ -81,7 +81,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
                 Headquarters &amp; Schedule
               </h3>
               <p className="text-xs sm:text-sm text-neutral-400 mt-1 leading-relaxed">
-                We maintain an open-door policy in the campus CS building. Drop by anytime during open lab hours to code, ask questions, or hack on hardware.
+                Connect with our organizers and community members online or meet in person during our scheduled hands-on workshops.
               </p>
             </div>
 
@@ -89,9 +89,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
               <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#0e1017] border border-cyan-500/30">
                 <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-cyan-400" />
                 <div>
-                  <div className="font-semibold text-white">Campus Hacker Lab</div>
+                  <div className="font-semibold text-white">Workshop Venue</div>
                   <div className="text-neutral-400 text-xs mt-0.5">
-                    Turing Hall, Basement Lab Room 014
+                    Mahagun Club 1 (in collaboration with Udaan)
                   </div>
                 </div>
               </div>
@@ -99,9 +99,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
               <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#0e1017] border border-emerald-500/30">
                 <Clock className="w-5 h-5 shrink-0 mt-0.5 text-emerald-400" />
                 <div>
-                  <div className="font-semibold text-white">Open Hack Nights</div>
+                  <div className="font-semibold text-white">Next Scheduled Session</div>
                   <div className="text-neutral-400 text-xs mt-0.5">
-                    Tuesdays &amp; Thursdays: 6:00 PM – 9:30 PM
+                    Hack Club Boba Drops: 3 October, 2:00 PM – 6:00 PM
                   </div>
                 </div>
               </div>
@@ -109,9 +109,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
               <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#0e1017] border border-purple-500/30">
                 <Mail className="w-5 h-5 shrink-0 mt-0.5 text-purple-400" />
                 <div>
-                  <div className="font-semibold text-white">Direct Lead Email</div>
+                  <div className="font-semibold text-white">Community &amp; Inquiries</div>
                   <div className="text-neutral-300 text-xs font-mono mt-0.5">
-                    leads@codenstuff.club
+                    Official Discord Transmission &amp; Contact Form
                   </div>
                 </div>
               </div>
@@ -119,12 +119,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
 
             {/* Living Terminal Ping Box */}
             <div className="p-4 rounded-2xl bg-[#0b0c10] border border-neutral-800 font-mono text-xs space-y-2">
-              <div className="text-neutral-500">// direct communications channel</div>
+              <div className="text-neutral-500">// network status</div>
               <div className="flex items-center gap-1.5 text-emerald-400">
-                <span>&gt; ping hub.codenstuff.internal</span>
+                <span>&gt; club status</span>
               </div>
               <div className="text-neutral-400 text-[11px] leading-relaxed">
-                Reply from 10.0.4.12: bytes=32 time=0.8ms TTL=64 (All 4 tracks online)
+                NYRO Club • Affiliated with Hack Club • Partnered with Udaan Society
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
                     <input
                       required
                       type="email"
-                      placeholder="student@university.edu"
+                      placeholder="your.email@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl bg-[#0e1017] border border-neutral-800 text-white text-sm placeholder-neutral-600 focus:outline-none focus:border-purple-500/80 focus:ring-1 focus:ring-purple-500/50 transition-all"
@@ -194,19 +194,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({ palette, onOpenJoinMod
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-neutral-300 mb-1.5">
-                      Student Standing / Year
+                      Age Group / Standing
                     </label>
                     <select
                       value={formData.year}
                       onChange={(e) => setFormData({ ...formData, year: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl bg-[#0e1017] border border-neutral-800 text-white text-sm focus:outline-none focus:border-emerald-500/80 focus:ring-1 focus:ring-emerald-500/50 transition-all"
                     >
-                      <option value="Freshman (1st Year)">Freshman (1st Year)</option>
-                      <option value="Sophomore (2nd Year)">Sophomore (2nd Year)</option>
-                      <option value="Junior (3rd Year)">Junior (3rd Year)</option>
-                      <option value="Senior (4th Year)">Senior (4th Year)</option>
-                      <option value="Graduate Student">Graduate Student</option>
-                      <option value="Alumni / Tech Sponsor">Alumni / Tech Sponsor</option>
+                      <option value="Teenager (13–15 years)">Teenager (13–15 years)</option>
+                      <option value="Teenager (16–18 years)">Teenager (16–18 years)</option>
+                      <option value="High School Student">High School Student</option>
+                      <option value="Middle School Student">Middle School Student</option>
+                      <option value="Parent / Guardian">Parent / Guardian</option>
+                      <option value="Community Partner">Community Partner</option>
                     </select>
                   </div>
 
